@@ -1,9 +1,9 @@
 package maze;
 
 /**
- * A small demo of the maze search routines, grounded in the chapter's traced
- * 4x4 maze: 'S' marks the start (top-left), 'E' the exit (bottom-right), '#'
- * a wall, and ' ' an open cell. Each MazeSolver method answers a different
+ * A small demo of the maze search routines, grounded in the chapter's 4x4
+ * dead-end maze: 'S' marks the start (top-left), 'E' the exit (bottom-right),
+ * '#' a wall, and '.' an open cell. Each MazeSolver method answers a different
  * question about the same maze.
  */
 public class Main {
@@ -12,10 +12,10 @@ public class Main {
     // The 4x4 maze traced in the chapter. Start at the top-left, exit at the
     // bottom-right. '#' cells are walls the search must route around.
     char[][] maze = {
-      {'S', ' ', ' ', '#'},
-      {' ', '#', ' ', '#'},
-      {' ', '#', '#', ' '},
-      {' ', ' ', ' ', 'E'},
+      {'S', '.', '.', '#'},
+      {'.', '#', '.', '#'},
+      {'.', '#', '#', '.'},
+      {'.', '.', '.', 'E'},
     };
 
     // Print the maze, one row per line.

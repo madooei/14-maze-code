@@ -40,6 +40,11 @@ public final class MazeSolver {
         && maze[row][col] != '#';
   }
 
+  // Are we standing on the exit? The exit is the bottom-right cell.
+  private static boolean isExit(char[][] maze, int row, int col) {
+    return row == maze.length - 1 && col == maze[0].length - 1;
+  }
+
   /**
    * Returns true if there is a path from the start to the exit, found by a
    * recursive search that marks cells visited as it goes.
@@ -59,7 +64,7 @@ public final class MazeSolver {
     if (visited[row][col]) {
       return false;
     }
-    if (row == maze.length - 1 && col == maze[0].length - 1) {
+    if (isExit(maze, row, col)) {
       return true;
     }
 
@@ -94,8 +99,7 @@ public final class MazeSolver {
       Position current = toExplore.top();
       toExplore.pop();
 
-      if (current.row == maze.length - 1
-          && current.col == maze[0].length - 1) {
+      if (isExit(maze, current.row, current.col)) {
         return true;
       }
 
@@ -135,8 +139,7 @@ public final class MazeSolver {
       Position current = toExplore.front();
       toExplore.dequeue();
 
-      if (current.row == maze.length - 1
-          && current.col == maze[0].length - 1) {
+      if (isExit(maze, current.row, current.col)) {
         return true;
       }
 
