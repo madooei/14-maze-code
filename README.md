@@ -3,8 +3,9 @@
 The companion code for the Maze chapter: one `MazeSolver` that finds a path
 through a rectangular maze four ways — recursive backtracking, an explicit
 stack, a queue, and a queue that measures the shortest distance — a JUnit
-suite that drives all four against the chapter's traced mazes, and a
-reachable-cells practice problem. The `Stack` and `Queue` ADTs from the
+suite that drives all four against the chapter's traced mazes, and two
+practice problems: counting reachable cells, and finding the shortest
+distance and route to the exit. The `Stack` and `Queue` ADTs from the
 previous two chapters are vendored here so the maze code is self-contained.
 
 ## Prerequisites
@@ -30,12 +31,14 @@ previous two chapters are vendored here so the maze code is self-contained.
 │   │   │   ├── Queue.java
 │   │   │   └── LinkedQueue.java
 │   │   └── practice/                   # practice problems
-│   │       └── ReachableCells.java     #   count cells reachable from the start
+│   │       ├── ReachableCells.java     #   count cells reachable from the start
+│   │       └── ShortestMazeDistance.java  # fewest moves and the route to the exit
 │   └── test/
 │       ├── maze/
 │       │   └── MazeSolverTest.java     #   the four searches against the traced mazes
 │       └── practice/
-│           └── ReachableCellsTest.java
+│           ├── ReachableCellsTest.java
+│           └── ShortestMazeDistanceTest.java
 └── scripts/
     ├── test.sh                         # compile + run every JUnit suite
     └── run.sh                          # compile + run the demo
