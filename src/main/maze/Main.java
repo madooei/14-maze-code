@@ -26,11 +26,9 @@ public class Main {
     System.out.println();
 
     // Each method explores the same maze a different way, but they agree on
-    // whether the exit is reachable. shortestDistance reports how many steps
-    // the shortest route takes.
+    // whether the exit is reachable.
     System.out.println("Recursive search reaches the exit: " + MazeSolver.hasPath(maze));
     System.out.println("Stack search reaches the exit: " + MazeSolver.hasPathWithStack(maze));
     System.out.println("Queue search reaches the exit: " + MazeSolver.hasPathWithQueue(maze));
-    System.out.println("Shortest distance to the exit: " + MazeSolver.shortestDistance(maze));
   }
 }

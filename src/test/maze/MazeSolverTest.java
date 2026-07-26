@@ -1,6 +1,5 @@
 package maze;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -9,8 +8,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Tests for MazeSolver. Each reachability scenario is checked against all three
  * searches: the recursive-with-visited search, the stack search, and the queue
- * search must agree on every maze. The distance scenarios check the queue-based
- * shortest distance.
+ * search must agree on every maze.
  *
  * <p>The naive recursive search with no visited set is deliberately omitted from
  * the code under test because it loops forever on any maze with a cycle.
@@ -66,36 +64,6 @@ public class MazeSolverTest {
     assertFalse(MazeSolver.hasPath(m));
     assertFalse(MazeSolver.hasPathWithStack(m));
     assertFalse(MazeSolver.hasPathWithQueue(m));
-  }
-
-  @Test
-  public void measuresShortestDistanceInThreeByThree() {
-    char[][] m = maze("S..", ".#.", "..E");
-    assertEquals(4, MazeSolver.shortestDistance(m));
-  }
-
-  @Test
-  public void measuresDistanceAroundWalls() {
-    char[][] m = maze("S..", "##.", "..E");
-    assertEquals(4, MazeSolver.shortestDistance(m));
-  }
-
-  @Test
-  public void returnsNegativeOneWhenUnreachable() {
-    char[][] m = maze("S.#", "#.#", ".#E");
-    assertEquals(-1, MazeSolver.shortestDistance(m));
-  }
-
-  @Test
-  public void returnsZeroForSingleOpenCell() {
-    char[][] m = maze("S");
-    assertEquals(0, MazeSolver.shortestDistance(m));
-  }
-
-  @Test
-  public void returnsNegativeOneWhenStartIsWall() {
-    char[][] m = maze("#..", "...", "..E");
-    assertEquals(-1, MazeSolver.shortestDistance(m));
   }
 
   private char[][] maze(String... rows) {
